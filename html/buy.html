@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+        }
+        #productInfo {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto 40px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        textarea { resize: vertical; }
+        button[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        @media screen and (max-width: 650px){
+            form, #productInfo { padding: 20px; margin: 20px 10px; }
+            button[type="submit"] { padding: 12px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fill in Buyer Details</h1>
+
+    <div id="productInfo"></div>
+
+    <form action="/html/pycom.html" method="get">
+        <input type="hidden" name="title" id="title">
+        <input type="hidden" name="price" id="price">
+
+        <label>Full Name:</label>
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone" placeholder="Mobile Number" required>
+
+        <label>Address:</label>
+        <textarea name="address" rows="3" placeholder="Your Address" required></textarea>
+
+        <label>Payment Method:</label>
+        <select name="payment" required>
+            <option value="">Select Payment Method</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+            <option value="upi">UPI</option>
+            <option value="cod">Cash on Delivery</option>
+        </select>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = urlParams.get('title');
+        const price = urlParams.get('price');
+
+        document.getElementById('productInfo').innerHTML = `<h2>${title}</h2><p>Price: ${price}</p>`;
+        document.getElementById('title').value = title;
+        document.getElementById('price').value = price;
+    </script>
+
+    <script>
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+function renderOrder() {
+    const cart = getCart();
+    const container = document.getElementById('order-container');
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        document.getElementById('total-price').innerText = "";
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach(item => {
+        const priceNum = parseInt(item.price.replace(/\D/g, ""));
+        total += priceNum * item.quantity;
+
+        container.innerHTML += `
+            <div class="order-item">
+                <h3>${item.title}</h3>
+                <p>Price: ${item.price}</p>
+                <p>Quantity: ${item.quantity}</p>
+            </div>
+        `;
+    });
+
+    document.getElementById('total-price').innerText = "Total: ₹" + total;
+}
+
+renderOrder();
+</script>
+</body>
+</html>
+

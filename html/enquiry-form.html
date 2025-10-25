@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Form</title>
+</head>
+<link rel="stylesheet" href="/css/enquiry.css">
+
+<body>
+    <h1>Please Fill Enquiry Form</h1>
+    <p>Please fill out the form provided below and we will respond to your inquiry shortly. Thank you!</p>
+    <form method="post">
+        <div>
+            <label for="Fname"> First Name</label>
+            <input type="text" name="Fname" id="fname" required>
+        </div>
+        <div>
+            <label for="Lname"> Last Name</label>
+            <input type="text" name="Lname" id="Lname" required>
+        </div>
+        <div>
+            <label for="Email"> Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="mnumber">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" maxlength="10" required>
+        </div>
+
+
+        <div>
+            <lable for="Address">Address</lable>
+            <textarea id="address" name="address" cols="auto" rows="5"></textarea>
+        </div>
+
+        <div>
+            <label>Gender</label><br>
+            <input type="radio" id="male" name="gender" required>
+            <label for="male">Male</label>
+            <br>
+            <input type="radio" id="female" name="gender" required>
+            <label for="female">Female</label>
+        </div>
+
+
+        <div>
+            <label for="Course">Select a Course:</label>
+            <select id="Course" name="Course">
+                <option value="Ms-Cit">Ms-Cit</option>
+                <option value="Tally Prime">Tally Prime</option>
+                <option value="Advance Excel">Advance Excel</option>
+                <option value="GST Return Filling">GST Return Filling</option>
+                <option value="GST Computation">GST Computation</option>
+                <option value="TDS Return Filling">TDS Return Filling</option>
+                <option value="TDS Computation">TDS Computation</option>
+                <option value="ITR Filling">ITR Filling</option>
+                <option value="Web Desinign">Web Desinign</option>
+                <option value="SQL">SQL</option>
+                <option value="C & C++">C & C++</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="submit" value="submit">
+            <input type="Reset" value="Reset">
+        </div>
+
+    </form>
+</body>
+
+</html>

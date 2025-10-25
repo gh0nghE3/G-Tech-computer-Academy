@@ -1,0 +1,205 @@
+/* Reset some basic defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding-top: 0px; /* space for fixed navbar */
+}
+/* ======= NAVBAR STYLING ======= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a64ac9;
+  padding: 10px 40px;
+  color: white;
+  position: fixed;     /* ✅ change from sticky → fixed */
+  top: 0;              /* ✅ keep at the top */
+  left: 0;
+  width: 100%;         /* ✅ make it full width */
+  z-index: 1000;       /* ✅ stay above all elements */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* optional shadow for better look */
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffe600;
+}
+
+/* Hamburger icon (hidden on large screens) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #a64ac9;
+    width: 200px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+/* ========== MAIN SECTION: ABOUT US ========== */
+main {
+  background: linear-gradient(180deg, #f7fbff 0%, #eaf6ff 100%);
+  padding: 80px 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.15);
+  padding: 50px 60px;
+  max-width: 900px;
+  line-height: 1.8;
+  color: #00334d;
+}
+
+.about h1 {
+  font-size: 2.5rem;
+  color: #007acc;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+}
+
+.about p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.about strong {
+  color: #007acc;
+}
+
+.about h2 {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  color: #00bfff;
+  border-left: 5px solid #00bfff;
+  padding-left: 10px;
+}
+
+.about ul {
+  list-style: none;
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+.about ul li {
+  background: rgba(0, 191, 255, 0.08);
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.about ul li:hover {
+  background: rgba(0, 191, 255, 0.15);
+  border-left: 4px solid #00bfff;
+  transform: translateX(5px);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  main {
+    padding: 60px 6%;
+  }
+
+  .about {
+    padding: 35px 25px;
+  }
+
+  .about h1 {
+    font-size: 2rem;
+  }
+
+  .about h2 {
+    font-size: 1.4rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+}
+
+/* Footer */
+footer {
+    background: #a44fc6;
+    padding: 40px 20px;
+    color: #e8e8e8;
+    text-align: center;
+    border-top: 2px solid #99e6ff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left img {
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.footer-right iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(15, 172, 225, 0.3);
+}

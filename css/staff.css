@@ -1,0 +1,232 @@
+/* ====== GLOBAL STYLES ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f4fbff;
+    color: #00334d;
+    overflow-x: hidden;
+}
+/* ======= NAVBAR STYLING ======= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a64ac9;
+  padding: 10px 40px;
+  color: white;
+  position: fixed;     /* ✅ change from sticky → fixed */
+  top: 0;              /* ✅ keep at the top */
+  left: 0;
+  width: 100%;         /* ✅ make it full width */
+  z-index: 1000;       /* ✅ stay above all elements */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* optional shadow for better look */
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffe600;
+}
+
+/* Hamburger icon (hidden on large screens) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #a64ac9;
+    width: 200px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+/* ====== PAGE TITLES ====== */
+.page-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-top: 100px;
+  color: #007acc;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
+  letter-spacing: 1px;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 60px;
+  color: #0099ff;
+  font-weight: 500;
+}
+
+/* ====== STAFF CONTAINER ====== */
+.staff-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 0 8% 100px 8%;
+  justify-items: center;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+/* ====== STAFF CARD ====== */
+.staff-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 153, 255, 0.15);
+  padding: 25px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 191, 255, 0.25);
+}
+
+/* ====== STAFF IMAGE ====== */
+.staff-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00bfff;
+  margin-bottom: 15px;
+  transition: 0.3s ease;
+}
+
+.staff-card:hover img {
+  border-color: #007acc;
+  transform: scale(1.05);
+}
+
+/* ====== STAFF TEXT ====== */
+.staff-card h3 {
+  font-size: 1.3rem;
+  color: #007acc;
+  margin: 10px 0;
+}
+
+.staff-card p {
+  font-size: 0.95rem;
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.staff-card strong {
+  color: #00bfff;
+}
+
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: #a44fc6;
+  padding: 40px 20px;
+  color: #e8e8e8;
+  text-align: center;
+  border-top: 2px solid #99e6ff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left img {
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+.footer-right iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(15, 172, 225, 0.3);
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 1024px) {
+  .staff-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .staff-card {
+    padding: 20px;
+  }
+
+  .staff-card img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .staff-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}

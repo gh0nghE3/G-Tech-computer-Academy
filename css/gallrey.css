@@ -1,0 +1,175 @@
+/* ====== GLOBAL STYLES ====== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(180deg, #f7fbff 0%, #eaf6ff 100%);
+    margin: 0;
+    padding: 0;
+    color: #00334d;
+    overflow-x: hidden;
+}
+/* ======= NAVBAR STYLING ======= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a64ac9;
+  padding: 10px 40px;
+  color: white;
+  position: fixed;     /* ✅ change from sticky → fixed */
+  top: 0;              /* ✅ keep at the top */
+  left: 0;
+  width: 100%;         /* ✅ make it full width */
+  z-index: 1000;       /* ✅ stay above all elements */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* optional shadow for better look */
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffe600;
+}
+
+/* Hamburger icon (hidden on large screens) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #a64ac9;
+    width: 200px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Main Section Styles */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
+    /* center main content */
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* spacing between sections */
+}
+
+/* Section Styles */
+main div[class^="section"] {
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Images Grid */
+main div[class^="section"] img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+/* Hover Effect on Images */
+main div[class^="section"] img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Grid Layout for Images */
+@media (min-width: 768px) {
+    main div[class^="section"] {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 767px) {
+    main div[class^="section"] img {
+        width: 45%;
+        margin: 5px;
+    }
+}
+
+
+footer {
+    background: #a44fc6;
+    padding: 40px 20px;
+    color: #e8e8e8;
+    text-align: center;
+    border-top: 2px solid #99e6ff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left img {
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.footer-right iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(15, 172, 225, 0.3);
+}

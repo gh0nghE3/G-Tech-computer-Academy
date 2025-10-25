@@ -1,0 +1,391 @@
+/* ======================================================
+   G-TECH COMPUTER ACADEMY WEBSITE STYLESHEET (2025)
+   Modern Light Blue Neon Theme + Parallax + Split About
+   ====================================================== */
+
+/* Base Reset & Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f4fbff;
+    color: #00334d;
+    overflow-x: hidden;
+}
+
+/* ===================== NAVBAR ===================== */
+/* ======= NAVBAR STYLING ======= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a64ac9;
+  padding: 10px 40px;
+  color: white;
+  position: fixed;     /* ✅ change from sticky → fixed */
+  top: 0;              /* ✅ keep at the top */
+  left: 0;
+  width: 100%;         /* ✅ make it full width */
+  z-index: 1000;       /* ✅ stay above all elements */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* optional shadow for better look */
+}
+
+.logo img {
+  height: 60px;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {   
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffe600;
+}
+
+/* Hamburger icon (hidden on large screens) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #a64ac9;
+    width: 200px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+/* ===================== HERO (Parallax) ===================== */
+.h1 {
+    background: url('/IMG/631.jpg') center/cover fixed no-repeat;
+    text-align: center;
+    color: white;
+    padding: 200px 15px;
+    position: relative;
+}
+
+.h1::before {
+    content: "";    
+    position: absolute;
+    inset: 5;
+    background: rgba(242, 244, 246, 0.25);
+}
+
+.h1 h1 {
+    position: relative;
+    font-size: 3rem;
+    color: #f9f9f9;
+    text-shadow: 0 0 25px #00bfff, 0 0 50px #99e6ff;
+    z-index: 1;
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+.h1 p {
+    position: relative;
+    font-size: 1.2rem;
+    color: #0a18e2;
+    margin-top: 25px;
+    z-index: 1;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 20px #00bfff;
+    }
+    50% {
+        text-shadow: 0 0 40px #66e0ff;
+    }
+}
+
+/* ===================== ABOUT / WELCOME SECTION ===================== */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 80px auto;
+    width: 90%;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.2);
+}
+
+/* Left Side (Image) */
+.about-left {
+    flex: 1;
+    min-width: 320px;
+}
+
+.about-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right Side (Content) */
+.about-right {
+    flex: 1;
+    padding: 50px 60px;
+    background-color: #ffffff;
+    color: #002b4d;
+}
+
+.about-right h1 {
+    font-size: 2.4rem;
+    color: #001f3f;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.about-right h3 {
+    font-size: 1rem;
+    color: #006699;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.about-right p {
+    line-height: 1.7;
+    color: #00334d;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.about-right strong {
+    color: #0077b6;
+}
+
+/* Features Block */
+.features {
+    background: #e6f7ff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+/* CTA Button */
+.cta-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 28px;
+    background-color: #e63946;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4);
+}
+
+.cta-btn:hover {
+    background-color: #c71c30;
+    transform: translateY(-2px);
+}
+
+/* ===================== COURSES SECTION ===================== */
+.course {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f0fbff;
+}
+
+.course h1 {
+    color: #0077b6;
+    text-shadow: 0 0 8px #99e6ff;
+    margin-bottom: 10px;
+}
+
+.course h2 {
+    color: #00aaff;
+    margin-bottom: 25px;
+}
+
+.course p {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #004466;
+}
+
+/* Course Cards */
+.course div[class^="cart"] {
+    display: inline-block;
+    background: #ffffff;
+    margin: 15px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 191, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+}
+
+.course div[class^="cart"]:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 191, 255, 0.35);
+}
+
+.course div[class^="cart"] img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.course div[class^="cart"] h2 {
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.course div[class^="cart"] p {
+    color: #00334d;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.course div[class^="cart"] a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #00bfff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.course div[class^="cart"] a:hover {
+    background-color: #0099cc;
+    transform: scale(1.05);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: #a44fc6;
+    padding: 40px 20px;
+    color: #e8e8e8;
+    text-align: center;
+    border-top: 2px solid #99e6ff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left img {
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.footer-right iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(15, 172, 225, 0.3);
+}
+
+/* ===================== RESPONSIVE DESIGN ===================== */
+@media (max-width: 992px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about-right {
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .h1 h1 {
+        font-size: 2.2rem;
+    }
+
+    .h1 p {
+        font-size: 1rem;
+    }
+
+    .course div[class^="cart"] {
+        width: 90%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ===================== BUTTON COLOR FIX ===================== */
+.course a,
+button,
+input[type="button"],
+input[type="submit"] {
+    background-color: #00bfff !important; /* Neon Blue */
+    color: #fff !important;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 191, 255, 0.4);
+}
+
+.course a:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #0099cc !important;
+    transform: scale(1.05);
+}
